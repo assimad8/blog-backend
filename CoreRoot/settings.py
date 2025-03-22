@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt',
+    'corsheaders',
 
     'core.apps.CoreConfig',
     'core.user.apps.UserConfig',
@@ -57,6 +58,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # cors middleware
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'CoreRoot.urls'
@@ -155,3 +160,7 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,  # Optionally rotate refresh tokens
     'BLACKLIST_AFTER_ROTATION': True,  # Optionally blacklist old refresh tokens after rotating
 }
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",    
+    "http://127.0.0.1:5173"
+    ]

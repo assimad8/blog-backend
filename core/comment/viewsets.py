@@ -6,14 +6,14 @@ from core.abstract.viewsets import AbstractViewSet
 from core.comment.models import Comment
 from core.comment.serializers import CommentSerializer
 from rest_framework.permissions import IsAuthenticated
-# from core.auth.pemissions import UserPermission
+from core.auth.pemissions import UserPermission
 from core.post.models import Post
 
 # Create your views here.
 
 class CommentViewSet(AbstractViewSet):
     http_method_names = ['post','get','put','delete']
-    permission_classes = [IsAuthenticated]
+    permission_classes = [UserPermission]
     serializer_class = CommentSerializer 
     
     def get_object(self):
