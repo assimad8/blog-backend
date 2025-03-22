@@ -13,3 +13,7 @@ class UserSerializer(AbstractSerializer):
         ]
         read_only_fields = ["is_verified"]  # Read-only fields
 
+class AuthorSerializer(AbstractSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'gender', 'user_type']

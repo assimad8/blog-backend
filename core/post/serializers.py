@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from core.abstract.serializers import AbstractSerializer
 from core.user.models import User
-from core.user.serializer import UserSerializer
+from core.user.serializer import UserSerializer,AuthorSerializer
 from core.post.models import Post
 
 class PostSerializer(AbstractSerializer):
@@ -46,8 +46,3 @@ class PostSerializer(AbstractSerializer):
             validated_data['is_edited'] = True
         instance = super().updated(instance,validated_data)
         return instance
-
-class AuthorSerializer(AbstractSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'gender', 'user_type']
