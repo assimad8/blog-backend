@@ -44,5 +44,5 @@ class PostSerializer(AbstractSerializer):
     def update(self, instance, validated_data):
         if not instance.is_edited:
             validated_data['is_edited'] = True
-        instance = super().updated(instance,validated_data)
+        instance = super().update(instance,validated_data)
         return instance
