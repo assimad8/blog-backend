@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'core.user.apps.UserConfig',
     'core.auth.apps.AuthConfig',
     'core.post.apps.PostConfig',
+    'core.comment.apps.CommentConfig',
 ]
 
 MIDDLEWARE = [
